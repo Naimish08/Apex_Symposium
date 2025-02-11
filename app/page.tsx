@@ -1,6 +1,5 @@
 import { Speakers } from "@/components/speakers"
 import { Schedule } from "@/components/schedule"
-import { Logos } from "@/components/Logos"
 import { RegistrationPanels } from "@/components/RegistrationPanels"
 import { Hero } from "@/components/Hero"
 
