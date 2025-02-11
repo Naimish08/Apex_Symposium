@@ -7,113 +7,130 @@ const speakers = [
   {
     name: "Dr. Padmaja Joshi",
     role: "Senior Director, CDAC",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/resc/speakers/padmaja.png",
+    topic: "TBA"
   },
   {
-    name: "Mr. Parvez Kudrolli",
+    name: "Dr.Aarti Karande",
+    role: "Professor,SPIT",
+    image: "/resc/speakers/aarti.jpg",
+    topic: "TBA"
+  },
+  {
+    name: "Mr.Parvez Kudrolli",
     role: "Principal Associate, Khurana & Khurana",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/resc/speakers/parvez.png",
+    topic: "TBA"
   },
   {
-    name: "Dr. Ganga S",
+    name: "Dr.Ganga S",
     role: "Mentor-in-Residence, SINE",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/placeholder.svg",
+    topic: "TBA"
   },
   {
     name: "Mr. Parthesh Shah",
     role: "Co-Founder, Knight Fintech",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/placeholder.svg",
+    topic: "TBA"
   },
   {
     name: "Mr. Sandeep Chandalia",
     role: "Co-Founder, Transpure",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/resc/speakers/sandeep.jpg",
+    topic: "TBA"
   },
   {
     name: "Mr. Devansh Lakhani",
-    role: "Angel Investor, Director - LFS",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    role: "Angel Investor, LFS",
+    image: "/resc/speakers/devansh.png",
+    topic: "TBA"
   },
   {
     name: "Mr. Champ Alreja",
     role: "Co-Founder, GOQii",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/placeholder.svg",
+    topic: "TBA"
   },
   {
     name: "Mr. Hemant Kelkar",
     role: "Founder, VCounsel",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/resc/speakers/hemant.png",
+    topic: "TBA"
   },
   {
     name: "Mr. Nilesh Dungarwal",
     role: "CEO, WorkIndia",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/placeholder.svg",
+    topic: "TBA"
   },
   {
     name: "Mr. Mitesh Jain",
     role: "Co-Founder & CTO, Symbo",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/placeholder.svg",
+    topic: "TBA"
   },
   {
     name: "Mr. Prasad Shetty",
     role: "VP Portfolio & Opp, SINE",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
+    image: "/resc/speakers/prasad.jpg",
+    topic: "TBA"
   },
   {
     name: "Ms. Alina Namazi",
     role: "Influencer",
-    image: "/placeholder.svg?height=600&width=400",
-    topic: "TBA",
-  },
+    image: "/resc/speakers/alina.png",
+    topic: "TBA"
+  }
 ];
-
 
 export function Speakers() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 text-white">
+    <div className="container mx-auto px-6 lg:px-16">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-16"
+        className="text-2xl sm:text-4xl font-bold text-center mb-12 sm:mb-20 text-white"
       >
-        Keynote Speakers
+        Chief Guests
       </motion.h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         {speakers.map((speaker, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.2 }}
+            transition={{ delay: index * 0.15 }}
           >
-            <Card className="group bg-white/10 border-white/20 overflow-hidden relative">
-              <CardContent className="p-0 relative text-white">
-                <div className="relative aspect-[3/4] mb-4 sm:mb-6 overflow-hidden">
-                  <motion.img
-                    src={speaker.image}
+            <Card className="group relative bg-black/50 border border-white/10 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:border-[#00F0FF]/50 transition duration-300">
+              <CardContent className="p-0">
+                <div className="relative aspect-[4/5]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#FF1CF7]/10 to-[#00F0FF]/10 mix-blend-overlay group-hover:opacity-75 transition-opacity duration-300 z-20" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-[#FF1CF7] to-[#00F0FF] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
+                  <img
+                    src={speaker.image || "/placeholder.svg"}
                     alt={speaker.name}
-                    className="w-full h-full object-cover transition-transform duration-500 brightness-110 contrast-110"
-                    whileHover={{ scale: 1.1 }}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent z-10" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 z-20 text-white bg-black/40 backdrop-blur-md rounded-b-lg">
-                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{speaker.name}</h3>
-                    <p className="text-white">{speaker.role}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 z-30">
+                    <div className="space-y-1">
+                      <motion.h3
+                        className="text-lg font-bold text-white group-hover:text-[#00F0FF] transition-colors duration-300"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.3 }}
+                      >
+                        {speaker.name}
+                      </motion.h3>
+                      <p className="text-sm text-[#FF1CF7]">{speaker.role}</p>
+                    </div>
                   </div>
                 </div>
+                <div className="absolute top-2 right-2 w-8 h-8 border border-white/10 rounded-full opacity-50 group-hover:border-[#00F0FF]/50 transition-colors duration-300" />
+                <div className="absolute top-4 right-4 w-2 h-2 bg-[#FF1CF7] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
               </CardContent>
             </Card>
           </motion.div>

@@ -9,15 +9,35 @@ const events = [
     title: "Apex Symposium",
     description: "Join us for two days of innovation, technology, and entrepreneurship",
     details:
-      "The Apex Symposium is a premier event bringing together industry leaders, innovators, and entrepreneurs. Dive deep into cutting-edge technologies, participate in engaging workshops, and network with like-minded professionals.",
-    price: "₹1999",
+      "The Apex Symposium is a premier event bringing together industry leaders, innovators, and entrepreneurs. Dive deep into cutting-edge technologies, participate in engaging workshops, and network with like-minded professionals. Free till 12/2/25 using the promo code 'APEXFREE25'.",
+    price: "₹300",
+    buttonLabel: "Register Now",
+    link: "https://www.skillboxes.com/events/apex-symposium-1"
   },
   {
-    title: "Vision X Competition",
+    title: "Vision X:Case Study Competition",
     description: "Showcase your innovative ideas and compete for exciting prizes",
     details:
       "Vision X is a high-stakes competition under the Apex Symposium umbrella. Present your groundbreaking ideas to a panel of expert judges, receive valuable feedback, and stand a chance to win substantial funding and mentorship opportunities.",
-    price: "₹999",
+    price: "Free",
+    buttonLabel: "Register Now",
+    link: "https://unstop.com/competitions/vision-x-sardar-patel-institute-of-technology-spit-mumbai-1390157"
+  },
+  {
+    title: "Event Brochure",
+    description: "Get detailed insights about the Apex Symposium and Vision X Competition",
+    details:
+      "Download our official brochure to explore event details, schedules, and competition guidelines.",
+    buttonLabel: "View Brochure",
+    link: "https://drive.google.com/file/d/1iZQVWVhGJ1dsGZNpcASA1dUCTs0E1Ola/edit"
+  },
+  {
+    title: "Join Our WhatsApp Group",
+    description: "Stay updated with event announcements and important updates",
+    details:
+      "Join our official WhatsApp group to get real-time updates, interact with fellow participants, and stay connected with the event organizers.",
+    buttonLabel: "Join Now",
+    link: "https://chat.whatsapp.com/ELuxGNrYE5o3ifEv3V10oy"
   },
 ]
 
@@ -25,7 +45,7 @@ export function RegistrationPanels() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {events.map((event, index) => (
         <motion.div
           key={index}
@@ -34,19 +54,27 @@ export function RegistrationPanels() {
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <div
-            className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 cursor-pointer hover:bg-white/10 transition-colors"
+            className="bg-black/30 backdrop-blur-xl p-6 rounded-xl border border-cyan-500/30 shadow-lg shadow-cyan-500/10 cursor-pointer hover:border-cyan-500/70 transition-all duration-300 relative overflow-hidden group"
             onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
           >
-            <div className="flex justify-between items-center">
-              <h3 className="text-xl font-semibold text-white">{event.title}</h3>
+            {/* Neon Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent via-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+            {/* Title and Expand Icon */}
+            <div className="flex justify-between items-center relative z-10">
+              <h3 className="text-xl font-semibold text-cyan-400 group-hover:text-white transition-colors duration-300">
+                {event.title}
+              </h3>
               <ChevronDown
-                className={`h-5 w-5 text-gray-400 transition-transform ${
-                  expandedIndex === index ? "transform rotate-180" : ""
+                className={`h-5 w-5 text-cyan-500 transition-transform ${
+                  expandedIndex === index ? "rotate-180" : ""
                 }`}
               />
             </div>
+
+            {/* Description */}
             <p className="text-gray-400 mt-2">{event.description}</p>
-            <p className="text-gray-400 mt-2">{event.description}</p>
+
             <AnimatePresence>
               {expandedIndex === index && (
                 <motion.div
@@ -54,14 +82,20 @@ export function RegistrationPanels() {
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="mt-4 space-y-4"
+                  className="mt-4 space-y-4 relative z-10"
                 >
                   <p className="text-gray-300">{event.details}</p>
+
+                  {/* Price & Register Button */}
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-white">{event.price}</span>
-                    <button className="px-6 py-2 bg-gradient-to-r from-rose-500 to-purple-500 text-white font-medium rounded-lg hover:opacity-90 transition-opacity">
-                      Register Now
-                    </button>
+                    {event.price && (
+                      <span className="text-2xl font-bold text-cyan-400">{event.price}</span>
+                    )}
+                    <a href={event.link} target="_blank" rel="noopener noreferrer">
+                      <button className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-medium rounded-lg shadow-md shadow-cyan-500/50 hover:opacity-90 transition-all duration-300">
+                        {event.buttonLabel}
+                      </button>
+                    </a>
                   </div>
                 </motion.div>
               )}
@@ -72,4 +106,3 @@ export function RegistrationPanels() {
     </div>
   )
 }
-
