@@ -99,28 +99,33 @@ export function Hero() {
                 </motion.div>
 
                 {/* Logos */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                  className="pt-6"
-                >
-                  <p className="text-sm text-gray-500 mb-4">Presented by</p>
-                  <div className="flex items-center gap-8">
-                    {logos.map((logo, index) => (
-                      <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-                        <img
-                          src={logo.src || "/placeholder.svg"}
-                          alt={logo.name}
-                          className={`opacity-100 hover:opacity-100 transition-all duration-300
-                            ${logo.rounded ? "h-24 w-24 rounded-full" : "h-24 w-32 rounded-lg"}`}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="pt-6"
+                  >
+                    <p className="text-sm text-gray-500 mb-4">Presented by</p>
+                    <div className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap8">
+                      {logos.map((logo, index) => (
+                        <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}  className={
+                          logo.name === "SPTBI Logo"
+                            ? "col-span-2 flex justify-center"
+                            : logo.name === "NISP Logo"
+                            ? "flex justify-end"
+                            : "flex justify-start"
+                        }>
+                          <img
+                            src={logo.src || "/placeholder.svg"}
+                            alt={logo.name}
+                            className={`opacity-100 hover:opacity-100 transition-all duration-300
+                              ${logo.rounded ? "h-24 w-24 rounded-full" : "h-24 w-33 rounded-lg content-center"}`}
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
               </div>
-
               <div className="flex items-center justify-center lg:justify-end">
                 <CountdownTimer />
               </div>
