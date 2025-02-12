@@ -18,7 +18,7 @@ export function CountdownTimer() {
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
-      let difference = eventDate - now;
+      const difference = eventDate - now;
 
       if (difference <= 0) {
         setEventStarted(true);
