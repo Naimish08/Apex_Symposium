@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,33 +9,35 @@ export function CountdownTimer() {
     hours: 0,
     minutes: 0,
     seconds: 0,
-  })
-  const [eventStarted, setEventStarted] = useState(false)
+  });
+  const [eventStarted, setEventStarted] = useState(false);
 
   useEffect(() => {
-    const eventDate = new Date("2024-02-18T13:30:00").getTime()
+    // Ensure correct UTC time handling
+    const eventDate = new Date(Date.UTC(2025, 1, 18, 8, 0, 0)).getTime(); // 202-02-18 08:00 UTC
 
     const calculateTimeLeft = () => {
-      const now = new Date().getTime()
-      const difference = eventDate - now
+      const now = new Date().getTime();
+      let difference = eventDate - now;
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        })
-      } else {
-        setEventStarted(true)
+      if (difference <= 0) {
+        setEventStarted(true);
+        return;
       }
-    }
 
-    const timer = setInterval(calculateTimeLeft, 1000)
-    calculateTimeLeft() // Initial calculation
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      });
+    };
 
-    return () => clearInterval(timer)
-  }, [])
+    calculateTimeLeft(); // Run immediately to prevent delay
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   if (eventStarted) {
     return (
@@ -46,10 +48,12 @@ export function CountdownTimer() {
         className="w-full max-w-md mx-auto"
       >
         <div className="bg-black/40 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/10">
-          <h3 className="text-lg sm:text-xl font-semibold text-center text-white">Event Has Started!</h3>
+          <h3 className="text-lg sm:text-xl font-semibold text-center text-white">
+            Event Has Started!
+          </h3>
         </div>
       </motion.div>
-    )
+    );
   }
 
   return (
@@ -60,7 +64,9 @@ export function CountdownTimer() {
       className="w-full max-w-md mx-auto"
     >
       <div className="bg-black/40 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/10">
-        <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center text-white">Event Starts In</h3>
+        <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center text-white">
+          Event Starts In
+        </h3>
         <div className="grid grid-cols-4 gap-2 sm:gap-4">
           {Object.entries(timeLeft).map(([unit, value]) => (
             <div key={unit} className="relative group">
@@ -76,6 +82,5 @@ export function CountdownTimer() {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
-

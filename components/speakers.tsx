@@ -25,13 +25,13 @@ const speakers = [
   {
     name: "Dr.Ganga S",
     role: "Mentor-in-Residence, SINE",
-    image: "/placeholder.svg",
+    image: "/resc/speakers/ganga.png",
     topic: "TBA"
   },
   {
     name: "Mr. Parthesh Shah",
     role: "Co-Founder, Knight Fintech",
-    image: "/placeholder.svg",
+    image: "/resc/speakers/parthesh.png",
     topic: "TBA"
   },
   {
@@ -49,25 +49,25 @@ const speakers = [
   {
     name: "Mr. Champ Alreja",
     role: "Co-Founder, GOQii",
-    image: "/placeholder.svg",
+    image: "/resc/speakers/champ.png",
     topic: "TBA"
   },
   {
-    name: "Mr. Hemant Kelkar",
-    role: "Founder, VCounsel",
-    image: "/resc/speakers/hemant.png",
+    name: "Mr. Abhishek Barari",
+    role: "Co-Founder, GOQii",
+    image: "/resc/speakers/abhishek.png",
     topic: "TBA"
   },
   {
     name: "Mr. Nilesh Dungarwal",
     role: "CEO, WorkIndia",
-    image: "/placeholder.svg",
+    image: "/resc/speakers/nilesh.png",
     topic: "TBA"
   },
   {
     name: "Mr. Mitesh Jain",
     role: "Co-Founder & CTO, Symbo",
-    image: "/placeholder.svg",
+    image: "/resc/speakers/mitesh.png",
     topic: "TBA"
   },
   {

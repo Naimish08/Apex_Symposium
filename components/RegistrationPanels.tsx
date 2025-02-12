@@ -9,8 +9,8 @@ const events = [
     title: "Apex Symposium",
     description: "Join us for two days of innovation, technology, and entrepreneurship",
     details:
-      "The Apex Symposium is a premier event bringing together industry leaders, innovators, and entrepreneurs. Dive deep into cutting-edge technologies, participate in engaging workshops, and network with like-minded professionals. Free till 12/2/25 using the promo code 'APEXFREE25'.",
-    price: "₹300",
+      "Brought to you by NISP-S.P.I.T., APEX SYMPOSIUM 2025 is the ultimate gathering where entrepreneurial minds unite for a day of innovation, collaboration, and limitless possibilities!. FREE REGISTRATION till 12th February! For Lunch use Coupon Code: 'SPITSTUD' for SPIT Students and get 100 rs off",
+    price: "₹200",
     buttonLabel: "Register Now",
     link: "https://www.skillboxes.com/events/apex-symposium-1"
   },
@@ -18,7 +18,7 @@ const events = [
     title: "Vision X:Case Study Competition",
     description: "Showcase your innovative ideas and compete for exciting prizes",
     details:
-      "Vision X is a high-stakes competition under the Apex Symposium umbrella. Present your groundbreaking ideas to a panel of expert judges, receive valuable feedback, and stand a chance to win substantial funding and mentorship opportunities.",
+      "Vision X is a premier case study competition under the Apex Symposium umbrella. Tackle real-world challenges, present data-driven solutions to a panel of expert judges, and receive valuable feedback. Compete for substantial funding and mentorship opportunities to bring your ideas to life.",
     price: "Free",
     buttonLabel: "Register Now",
     link: "https://unstop.com/competitions/vision-x-sardar-patel-institute-of-technology-spit-mumbai-1390157"
