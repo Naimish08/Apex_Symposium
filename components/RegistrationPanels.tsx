@@ -31,6 +31,8 @@ const events = [
     buttonLabel: "View Brochure",
     link: "/Apex 2.0 brochure.pdf"
   },
+  // Commented out WhatsApp group to avoid it appearing
+  /*
   {
     title: "Join Our WhatsApp Group",
     description: "Stay updated with event announcements and important updates",
@@ -39,6 +41,7 @@ const events = [
     buttonLabel: "Join Now",
     link: "https://chat.whatsapp.com/ELuxGNrYE5o3ifEv3V10oy"
   },
+  */
 ]
 
 export function RegistrationPanels() {
@@ -57,10 +60,8 @@ export function RegistrationPanels() {
             className="bg-black/30 backdrop-blur-xl p-6 rounded-xl border border-cyan-500/30 shadow-lg shadow-cyan-500/10 cursor-pointer hover:border-cyan-500/70 transition-all duration-300 relative overflow-hidden group"
             onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
           >
-            {/* Neon Glow Effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-transparent via-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            {/* Title and Expand Icon */}
             <div className="flex justify-between items-center relative z-10">
               <h3 className="text-xl font-semibold text-cyan-400 group-hover:text-white transition-colors duration-300">
                 {event.title}
@@ -72,7 +73,6 @@ export function RegistrationPanels() {
               />
             </div>
 
-            {/* Description */}
             <p className="text-gray-400 mt-2">{event.description}</p>
 
             <AnimatePresence>
@@ -86,7 +86,6 @@ export function RegistrationPanels() {
                 >
                   <p className="text-gray-300">{event.details}</p>
 
-                  {/* Price & Register Button */}
                   <div className="flex justify-between items-center">
                     {event.price && (
                       <span className="text-2xl font-bold text-cyan-400">{event.price}</span>
