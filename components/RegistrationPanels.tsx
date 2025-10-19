@@ -29,7 +29,7 @@ const events = [
     details:
       "Download our official brochure to explore event details, schedules, and competition guidelines.",
     buttonLabel: "View Brochure",
-    link: "https://drive.google.com/file/d/1iZQVWVhGJ1dsGZNpcASA1dUCTs0E1Ola/edit"
+    link: "/Apex 2.0 brochure.pdf"
   },
   {
     title: "Join Our WhatsApp Group",

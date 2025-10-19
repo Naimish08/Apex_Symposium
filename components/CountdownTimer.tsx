@@ -49,7 +49,7 @@ export function CountdownTimer() {
       >
         <div className="bg-black/40 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/10">
           <h3 className="text-lg sm:text-xl font-semibold text-center text-white">
-            Event Has Started!
+            Stay Tuned!
           </h3>
         </div>
       </motion.div>

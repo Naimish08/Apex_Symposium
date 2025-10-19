@@ -1,14 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react"
+import { ArrowRight, Calendar, Clock, MapPin, FileText } from "lucide-react"
 import Link from "next/link"
 import { CountdownTimer } from "./CountdownTimer"
 
 const logos = [
-    { name: "SPIT Logo", src: "resc/logos/SPIT.jpg?height=80&width=80", rounded: true },
-    { name: "NISP Logo", src: "resc/logos/NISP.png?height=120&width=180", rounded: true },
-    { name: "SPTBI Logo", src: "resc/logos/sptbilogo.png?height=120&width=240", rounded: false },
+  { name: "SPIT Logo", src: "resc/logos/SPIT.jpg?height=80&width=80", rounded: true },
+  { name: "NISP Logo", src: "resc/logos/NISP.png?height=120&width=180", rounded: true },
+  { name: "SPTBI Logo", src: "resc/logos/sptbilogo.png?height=120&width=240", rounded: false },
 ]
 
 export function Hero() {
@@ -26,6 +26,7 @@ export function Hero() {
           <div className="flex min-h-screen items-center">
             <div className="w-full space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
               <div className="space-y-6 lg:space-y-8">
+                {/* Heading */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -36,7 +37,7 @@ export function Hero() {
                       <div className="h-3 w-3 bg-red-500 rounded-full animate-pulse" />
                       <div className="absolute h-3 w-3 bg-red-500 rounded-full animate-ping" />
                     </div>
-                    <span className="text-red-500 font-medium text-sm md:text-base">LIVE NOW</span>
+                    <span className="text-red-500 font-medium text-sm md:text-base">COMING SOON</span>
                   </div>
                   <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4">
                     Apex{" "}
@@ -49,11 +50,12 @@ export function Hero() {
                   </p>
                 </motion.div>
 
+                {/* Buttons */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex flex-col sm:flex-row gap-4"
+                  className="flex flex-col sm:flex-row flex-wrap gap-4"
                 >
                   <Link
                     href="#register"
@@ -66,6 +68,7 @@ export function Hero() {
                     Discover More
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
+
                   <Link
                     href="#schedule"
                     className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-gray-300 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
@@ -76,8 +79,20 @@ export function Hero() {
                   >
                     View Schedule
                   </Link>
+
+                  {/* 📄 View Brochure Button */}
+                  <a
+                    href="/Apex 2.0 brochure.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-gray-300 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+                  >
+                    <FileText className="mr-2 h-5 w-5" />
+                    View Brochure
+                  </a>
                 </motion.div>
 
+                {/* Event Info */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -86,7 +101,7 @@ export function Hero() {
                 >
                   <div className="flex items-center gap-2">
                     <Calendar className="h-5 w-5 text-rose-500" />
-                    <span className="text-sm md:text-base">February 18-19, 2024</span>
+                    <span className="text-sm md:text-base">November 13-14, 2025</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-rose-500" />
@@ -99,33 +114,40 @@ export function Hero() {
                 </motion.div>
 
                 {/* Logos */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="pt-6"
-                  >
-                    <p className="text-sm text-gray-500 mb-4">Presented by</p>
-                    <div className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap8">
-                      {logos.map((logo, index) => (
-                        <motion.div key={index} whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}  className={
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="pt-6"
+                >
+                  <p className="text-sm text-gray-500 mb-4">Presented by</p>
+                  <div className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap8">
+                    {logos.map((logo, index) => (
+                      <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                        className={
                           logo.name === "SPTBI Logo"
                             ? "col-span-2 flex justify-center"
                             : logo.name === "NISP Logo"
                             ? "flex justify-end"
                             : "flex justify-start"
-                        }>
-                          <img
-                            src={logo.src || "/placeholder.svg"}
-                            alt={logo.name}
-                            className={`opacity-100 hover:opacity-100 transition-all duration-300
-                              ${logo.rounded ? "h-24 w-24 rounded-full" : "h-24 w-33 rounded-lg content-center"}`}
-                          />
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+                        }
+                      >
+                        <img
+                          src={logo.src || "/placeholder.svg"}
+                          alt={logo.name}
+                          className={`opacity-100 hover:opacity-100 transition-all duration-300
+                            ${logo.rounded ? "h-24 w-24 rounded-full" : "h-24 w-33 rounded-lg content-center"}`}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
+
+              {/* Right Column - Timer */}
               <div className="flex items-center justify-center lg:justify-end">
                 <CountdownTimer />
               </div>
