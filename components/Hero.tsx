@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Calendar, Clock, MapPin, FileText } from "lucide-react"
-import Link from "next/link"
-import { CountdownTimer } from "./CountdownTimer"
+import { motion } from "framer-motion";
+import { ArrowRight, Calendar, Clock, MapPin, FileText } from "lucide-react";
+import Link from "next/link";
+import { CountdownTimer } from "./CountdownTimer";
 
 const logos = [
-  { name: "SPIT Logo", src: "resc/logos/SPIT.jpg?height=80&width=80", rounded: true },
-  { name: "NISP Logo", src: "resc/logos/NISP.png?height=120&width=180", rounded: true },
-  { name: "SPTBI Logo", src: "resc/logos/sptbilogo.png?height=120&width=240", rounded: false },
-]
+  { name: "SPIT Logo", src: "resc/logos/SPIT.jpg?height=80&width=80", rounded: true, link: "https://www.spit.ac.in" },
+  { name: "NISP Logo", src: "resc/logos/NISP.png?height=120&width=180", rounded: true, link: "https://nisp.spit.ac.in" },
+  { name: "SPTBI Logo", src: "resc/logos/sptbilogo.png?height=120&width=240", rounded: false, link: "https://www.sptbi.com/" },
+];
 
 export function Hero() {
   return (
@@ -61,8 +61,8 @@ export function Hero() {
                     href="#register"
                     className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-white bg-gradient-to-r from-rose-500 to-purple-500 rounded-lg hover:opacity-90 transition-opacity"
                     onClick={(e) => {
-                      e.preventDefault()
-                      document.querySelector("#register")?.scrollIntoView({ behavior: "smooth" })
+                      e.preventDefault();
+                      document.querySelector("#register")?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
                     Discover More
@@ -73,14 +73,14 @@ export function Hero() {
                     href="#schedule"
                     className="inline-flex items-center justify-center px-6 sm:px-8 py-3 text-base sm:text-lg font-medium text-gray-300 bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
                     onClick={(e) => {
-                      e.preventDefault()
-                      document.querySelector("#schedule")?.scrollIntoView({ behavior: "smooth" })
+                      e.preventDefault();
+                      document.querySelector("#schedule")?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
                     View Schedule
                   </Link>
 
-                  {/* 📄 View Brochure Button */}
+                  {/* View Brochure Button */}
                   <a
                     href="/Apex 2.0 brochure.pdf"
                     target="_blank"
@@ -121,10 +121,13 @@ export function Hero() {
                   className="pt-6"
                 >
                   <p className="text-sm text-gray-500 mb-4">Presented by</p>
-                  <div className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap8">
+                  <div className="grid grid-cols-2 sm:flex items-center gap-4 sm:gap-8">
                     {logos.map((logo, index) => (
-                      <motion.div
+                      <motion.a
                         key={index}
+                        href={logo.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.2 }}
                         className={
@@ -141,7 +144,7 @@ export function Hero() {
                           className={`opacity-100 hover:opacity-100 transition-all duration-300
                             ${logo.rounded ? "h-24 w-24 rounded-full" : "h-24 w-33 rounded-lg content-center"}`}
                         />
-                      </motion.div>
+                      </motion.a>
                     ))}
                   </div>
                 </motion.div>
@@ -159,5 +162,5 @@ export function Hero() {
       {/* Gradient Orb */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-rose-500/20 to-purple-500/20 rounded-full blur-[120px] pointer-events-none" />
     </section>
-  )
+  );
 }
