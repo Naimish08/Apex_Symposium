@@ -1,11 +1,9 @@
-"use client";
+"use client"
 
-import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card"
+import { motion } from "framer-motion"
+import { useState } from "react"
 
-/* 
-// Schedule data is commented out because the schedule hasn't been announced yet
 const schedule = {
   day1: [
     { time: "1:00 PM - 2:00 PM", event: "Registration Starts" },
@@ -37,16 +35,13 @@ const schedule = {
     { time: "4:00 PM - 4:30 PM", event: "Event Conclusion" },
     { time: "4:30 PM - 5:00 PM", event: "HighTea + Networking" },
   ],
-};
-*/
+}
 
 export function Schedule() {
-  // Placeholder state if you want to keep Day toggle for future use
-  const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
+  const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1")
 
   return (
     <div className="container mx-auto px-4 sm:px-6">
-      {/* Section Heading */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -56,25 +51,64 @@ export function Schedule() {
         Event Schedule
       </motion.h2>
 
-      {/* Card */}
       <Card className="bg-black/40 border border-cyan-500/30 backdrop-blur-md shadow-lg shadow-cyan-500/20">
-        <CardContent className="p-4 sm:p-6 md:p-8 flex justify-center items-center">
-          {/* Placeholder message since schedule is not yet announced */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2">
-              Schedule Coming Soon
-            </h3>
-            <p className="text-gray-400 text-sm sm:text-base">
-              We are finalizing the event schedule. Stay tuned for updates!
-            </p>
-          </motion.div>
+        <CardContent className="p-4 sm:p-6 md:p-8">
+          <div className="flex gap-3 sm:gap-4 mb-6 sm:mb-8 justify-center">
+            <button
+              onClick={() => setActiveDay("day1")}
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 border border-transparent ${
+                activeDay === "day1"
+                  ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-md shadow-cyan-500/50"
+                  : "bg-white/10 text-gray-400 hover:bg-white/20 border-cyan-500/30"
+              }`}
+            >
+              Day 1
+            </button>
+            <button
+              onClick={() => setActiveDay("day2")}
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 border border-transparent ${
+                activeDay === "day2"
+                  ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-md shadow-cyan-500/50"
+                  : "bg-white/10 text-gray-400 hover:bg-white/20 border-cyan-500/30"
+              }`}
+            >
+              Day 2
+            </button>
+          </div>
+
+          <div className="space-y-4 sm:space-y-6">
+            {schedule[activeDay].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative bg-black/50 border border-cyan-500/30 p-4 sm:p-6 rounded-xl backdrop-blur-md">
+                  <div className="flex flex-col gap-2 sm:gap-4">
+                    <div className="text-cyan-400 font-medium text-lg">{item.time}</div>
+                    <div className="flex-1">
+                      {Array.isArray(item.event) ? (
+                        <ul className="space-y-2">
+                          {item.event.map((subEvent, subIndex) => (
+                            <li key={subIndex} className="text-sm sm:text-base text-gray-300">
+                              • {subEvent}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="text-sm sm:text-base text-gray-300">{item.event}</div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </div>
-  );
+  )
 }
