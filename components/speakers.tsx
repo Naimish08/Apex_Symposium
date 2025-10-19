@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 
 /* 
@@ -43,26 +43,27 @@ export function Speakers() {
 
       {/* Placeholder message since speakers are not announced */}
       <Card className="bg-black/40 border border-cyan-500/30 backdrop-blur-md shadow-lg shadow-cyan-500/20 p-8 flex justify-center items-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2">
             Chief Guests Coming Soon
           </h3>
           <p className="text-gray-400 text-sm sm:text-base">
             We are finalizing the list of chief guests. Stay tuned for updates!
           </p>
-        </motion.div>
+        </div>
       </Card>
 
-      {/*
-      // Original speakers grid code can be uncommented later when the list is finalized
+      {/* 
+      // Original speakers grid can be uncommented later
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
         {speakers.map((speaker, index) => (
-          <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.15 }}>
+          <motion.div 
+            key={index} 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ delay: index * 0.15 }}
+          >
             <Card> ... </Card>
           </motion.div>
         ))}
