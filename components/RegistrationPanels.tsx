@@ -9,19 +9,19 @@ const events = [
     title: "Apex Symposium",
     description: "Join us for two days of innovation, technology, and entrepreneurship",
     details:
-      "Brought to you by NISP-S.P.I.T., APEX SYMPOSIUM 2025 is the ultimate gathering where entrepreneurial minds unite for a day of innovation, collaboration, and limitless possibilities!. FREE REGISTRATION till 12th February! For Lunch use Coupon Code: 'SPITSTUD' for SPIT Students and get 100 rs off",
-    price: "₹200",
-    buttonLabel: "Register Now",
-    link: "https://www.skillboxes.com/events/apex-symposium-1"
+      "Brought to you by NISP-S.P.I.T., APEX SYMPOSIUM 2025 is the ultimate gathering where entrepreneurial minds unite for a day of innovation, collaboration, and limitless possibilities! Registration and fees will be announced soon.",
+    price: "To Be Announced",
+    buttonLabel: "To Be Announced",
+    link: "#" // Disabled
   },
   {
-    title: "Vision X:Case Study Competition",
+    title: "Vision X: Case Study Competition",
     description: "Showcase your innovative ideas and compete for exciting prizes",
     details:
-      "Vision X is a premier case study competition under the Apex Symposium umbrella. Tackle real-world challenges, present data-driven solutions to a panel of expert judges, and receive valuable feedback. Compete for substantial funding and mentorship opportunities to bring your ideas to life.",
-    price: "Free",
-    buttonLabel: "Register Now",
-    link: "https://unstop.com/competitions/vision-x-sardar-patel-institute-of-technology-spit-mumbai-1390157"
+      "Vision X is a premier case study competition under the Apex Symposium umbrella. Registration and prize details will be announced soon.",
+    price: "To Be Announced",
+    buttonLabel: "To Be Announced",
+    link: "#" // Disabled
   },
   {
     title: "Event Brochure",
@@ -31,7 +31,7 @@ const events = [
     buttonLabel: "View Brochure",
     link: "/Apex 2.0 brochure.pdf"
   },
-  // Commented out WhatsApp group to avoid it appearing
+  // WhatsApp group commented out
   /*
   {
     title: "Join Our WhatsApp Group",
@@ -86,12 +86,22 @@ export function RegistrationPanels() {
                 >
                   <p className="text-gray-300">{event.details}</p>
 
-                  <div className="flex justify-between items-center">
+                  {/* Price & Button */}
+                  <div className="flex justify-between items-center mt-2">
                     {event.price && (
-                      <span className="text-2xl font-bold text-cyan-400">{event.price}</span>
+                      <span className="text-2xl font-bold text-cyan-400">
+                        {event.price}
+                      </span>
                     )}
-                    <a href={event.link} target="_blank" rel="noopener noreferrer">
-                      <button className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-medium rounded-lg shadow-md shadow-cyan-500/50 hover:opacity-90 transition-all duration-300">
+                    <a href={event.link}>
+                      <button
+                        disabled={event.link === "#"}
+                        className={`px-6 py-2 font-medium rounded-lg shadow-md ${
+                          event.link === "#"
+                            ? "bg-gray-500 cursor-not-allowed opacity-60"
+                            : "bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-cyan-500/50 hover:opacity-90"
+                        }`}
+                      >
                         {event.buttonLabel}
                       </button>
                     </a>
