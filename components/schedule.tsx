@@ -2,10 +2,9 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 /* 
-// Schedule data is commented out because the schedule hasn't been announced yet
+// Uncomment and use this when schedule is finalized
 const schedule = {
   day1: [
     { time: "1:00 PM - 2:00 PM", event: "Registration Starts" },
@@ -41,8 +40,8 @@ const schedule = {
 */
 
 export function Schedule() {
-  // Placeholder state if you want to keep Day toggle for future use
-  //const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
+  // Uncomment below if you want future toggle between Day1/Day2
+  // const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
 
   return (
     <div className="container mx-auto px-4 sm:px-6">
