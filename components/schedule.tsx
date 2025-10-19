@@ -42,7 +42,7 @@ const schedule = {
 
 export function Schedule() {
   // Placeholder state if you want to keep Day toggle for future use
-  const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
+  //const [activeDay, setActiveDay] = useState<"day1" | "day2">("day1");
 
   return (
     <div className="container mx-auto px-4 sm:px-6">
